@@ -1,3 +1,4 @@
 events_details.json
 .env
 venv
+__pycache__

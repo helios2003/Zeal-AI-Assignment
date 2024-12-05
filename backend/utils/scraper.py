@@ -29,18 +29,22 @@ def scrape_url(url):
                     'location': event_location,
                     'category': event_category,
                 })
-
-        with open('events_details.json', 'w', encoding='utf-8') as file:
-            for event in events:
-                file.write(json.dumps(event, indent=4))
+        return events
     else:
         print(f"Failed to fetch data from the website. Status code: {response.status_code}")
 
-def main():
-    for page in range(1, 257):
-        URL = f"https://www.eventbrite.com/d/wa--seattle/all-events/?{page}"
-        scrape_url(URL)
+def scrape_seattle_website(start_page, end_page):
+    """
+    Scrapes all the pages of the website
+    """
+    all_events = []
+    for page in range(start_page, end_page + 1):
+        URL = f"https://www.eventbrite.com/d/wa--seattle/all-events/?page={page}"
+        new_events = scrape_url(URL)
+        all_events.extend(new_events)
         print(f"Extracted the page: {page}'s events details")
+    
+    output_file = "events_details.json"
+    with open(output_file, 'w', encoding='utf-8') as file:
+        json.dump(all_events, file, indent=4, ensure_ascii=False)
 
-if __name__ == "__main__":
-    main()    
