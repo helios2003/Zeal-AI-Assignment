@@ -8,7 +8,7 @@ interface ChatInputProps {
 }
 
 export default function ChatInput({ onSubmit, isLoading }: ChatInputProps) {
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState("")
 
   const handleSubmit = () => {
     if (message.trim() && !isLoading) {
@@ -30,7 +30,7 @@ export default function ChatInput({ onSubmit, isLoading }: ChatInputProps) {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Message ChatGPT..."
+        placeholder="Query about Seattle..."
         className={cn(
           'w-full min-h-[60px] p-4 pr-12 rounded-lg resize-none',
           'bg-white border border-gray-300',

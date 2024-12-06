@@ -1,30 +1,38 @@
 import React from 'react'
-import { User, Bot } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-interface ChatMessageProps {
-  message: string
-  isUser: boolean
+export interface Message {
+  id: string
+  category: string
+  link: string
+  name: string
 }
 
-export default function ChatMessage({ message, isUser }: ChatMessageProps) {
+export default function ChatMessage({ id, category, link, name }: Message) {
   return (
     <div className={cn(
-      'flex gap-4 p-6',
-      isUser ? 'bg-white' : 'bg-gray-50'
+      'flex gap-4 p-6 bg-gray-50'
     )}>
       <div className={cn(
-        'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center',
-        isUser ? 'bg-blue-600' : 'bg-emerald-600'
+        'flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-blue-600'
       )}>
-        {isUser ? (
-          <User className="h-5 w-5 text-white" />
-        ) : (
-          <Bot className="h-5 w-5 text-white" />
-        )}
       </div>
       <div className="flex-1">
-        <p className="text-gray-900 whitespace-pre-wrap">{message}</p>
+        <p className="text-gray-900">
+          <span className="font-bold">ID:</span> {id}
+        </p>
+        <p className="text-gray-900">
+          <span className="font-bold">Category:</span> {category}
+        </p>
+        <p className="text-gray-900">
+          <span className="font-bold">Link:</span>{" "}
+          <a href={link} className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+            {link}
+          </a>
+        </p>
+        <p className="text-gray-900">
+          <span className="font-bold">Name:</span> {name}
+        </p>
       </div>
     </div>
   )

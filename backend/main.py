@@ -107,7 +107,7 @@ def get_results_route(payload: GetResults) -> Dict[str, Any]:
     Get the results for the query as specified by the user
     """
     query = payload.query
-    top_k = payload.top_k
+    top_k = int(payload.top_k)
     threshold = payload.threshold
     
     if len(query) < 3 or len(query) > 5000 or not (1 <= top_k <= 10) or not (0.0 <= threshold <= 1.0):
@@ -118,7 +118,18 @@ def get_results_route(payload: GetResults) -> Dict[str, Any]:
 
     try:
         results = get_results(query=query, top_k=top_k, threshold=threshold)
-        return json.dumps(str(results))
+
+        extracted_results = [
+            {
+                "id": match.get("id"),
+                "category": match.get("metadata", {}).get("category"),
+                "link": match.get("metadata", {}).get("link"),
+                "name": match.get("metadata", {}).get("name")
+            }
+            for match in results.get("matches", [])[:top_k]
+        ]
+
+        return {"results": extracted_results}
     
     except Exception as e:
         raise HTTPException(

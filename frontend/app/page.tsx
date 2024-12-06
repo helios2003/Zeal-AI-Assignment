@@ -3,9 +3,8 @@
 import { PartyPopper } from "lucide-react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { useToast } from "@/hooks/use-toast"
 import { Button } from "@/components/ui/button"
-import { Toaster } from "@/components/ui/toaster"
+import { useToast } from "@/hooks/use-toast"
 import { cn } from "@/lib/utils"
 import axios from "axios"
 
@@ -21,7 +20,6 @@ export default function Home() {
     if (startPage === undefined || endPage === undefined) {
       setLoading(false)
       toast({
-        variant: "destructive",
         title: "Bad request",
         description: "One of the page number fields is empty",
       })
@@ -53,7 +51,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-            <Toaster />
       <div className="flex flex-col items-center justify-start px-4 py-12 max-w-4xl mx-auto">
         <div className="text-center space-y-8 w-full">
           <div className="flex justify-center">
