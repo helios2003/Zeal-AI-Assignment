@@ -1,0 +1,274 @@
+[
+    {
+      "question": "What events demonstrate Seattle's approach to wellness and personal growth beyond traditional fitness?",
+      "ground_truth": [
+        {
+          "name": "R&B ONLY LIVE - Seattle, WA (10 Year Anniversary)",
+          "category": "music",
+          "link": "https://www.eventbrite.com/e/rb-only-live-seattle-wa-10-year-anniversary-tickets-1093862214329?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "SYSO Fall Series: Symphonette, Debut, & Junior Orchestras",
+          "category": "arts",
+          "link": "https://www.eventbrite.com/e/syso-fall-series-symphonette-debut-junior-orchestras-tickets-1053800518719?aff=ebdssbdestsearch"
+        }
+      ],
+      "model": [
+        {
+          "name": "View Thanksgiving Edition Kirtan Soulfest | Bhakti Yoga, Dancing, Veggie Dinner",
+          "category": "health",
+          "link": "https://www.eventbrite.com/e/thanksgiving-edition-kirtan-soulfest-bhakti-yoga-dancing-veggie-dinner-tickets-1054407133119?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "View SYSO Fall Series: S﻿ymphonette, Debut, & Junior Orchestras",
+          "category": "arts",
+          "link": "https://www.eventbrite.com/e/syso-fall-series-symphonette-debut-junior-orchestras-tickets-1053800518719?aff=ebdssbdestsearch"
+        }
+      ]
+    },
+    {
+      "question": "What innovative networking or community-building events reveal Seattle's unique social dynamics?",
+      "ground_truth": [
+        {
+          "name": "Seattle Biggest Business, Tech & Entrepreneur Networking Soiree",
+          "category": "business",
+          "link": "https://www.eventbrite.com/e/seattle-biggest-business-tech-entrepreneur-networking-soiree-tickets-1014719412077?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "Sex Trivia @ Stoup Capitol Hill",
+          "category": "community",
+          "link": "https://www.eventbrite.com/e/sex-trivia-stoup-capitol-hill-registration-1084871312299?aff=ebdssbdestsearch"
+        }
+      ],
+      "model": [
+        {
+          "name": "View Seattle Biggest Business, Tech & Entrepreneur Networking Soiree",
+          "category": "business",
+          "link": "https://www.eventbrite.com/e/seattle-biggest-business-tech-entrepreneur-networking-soiree-tickets-1014719412077?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "View Messiah (Kenmore)",
+          "category": "music",
+          "link": "https://www.eventbrite.com/e/messiah-kenmore-tickets-919907808017?aff=ebdssbdestsearch"
+        }
+      ]
+    },
+    {
+      "question": "Which events demonstrate Seattle's commitment to holistic wellness and personal development?",
+      "ground_truth": [
+        {
+          "name": "Women's Self Defense Seminar",
+          "category": "health",
+          "link": "https://www.eventbrite.com/e/womens-self-defense-seminar-tickets-1077039376769?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "Ease the Tension: Neck Pain Relief Workshop",
+          "category": "health",
+          "link": "https://www.eventbrite.com/e/ease-the-tension-neck-pain-relief-workshop-tickets-1083825554409?aff=ebdssbdestsearch"
+        }
+      ],
+      "model": [
+        {
+          "name": "View Seattle Biggest Business, Tech & Entrepreneur Networking Soiree",
+          "category": "business",
+          "link": "https://www.eventbrite.com/e/seattle-biggest-business-tech-entrepreneur-networking-soiree-tickets-1014719412077?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "View Messiah (Kenmore)",
+          "category": "music",
+          "link": "https://www.eventbrite.com/e/messiah-kenmore-tickets-919907808017?aff=ebdssbdestsearch"
+        }
+      ]
+    },
+    {
+      "question": "What unconventional holiday celebration events showcase Seattle's creative spirit?",
+      "ground_truth": [
+        {
+          "name": "HAIL SANTA XIV",
+          "category": "music",
+          "link": "https://www.eventbrite.com/e/hail-santa-xiv-tickets-1053089678577?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "Jingle & Jive: A Disco Party",
+          "category": "sports-and-fitness",
+          "link": "https://www.eventbrite.com/e/jingle-jive-a-disco-party-tickets-1050243656047?aff=ebdssbdestsearch"
+        }
+      ],
+      "model": [
+        {
+          "name": "View Sync Seattle Third Annual Hats Off Holiday Ball",
+          "category": "community",
+          "link": "https://www.eventbrite.com/e/sync-seattle-third-annual-hats-off-holiday-ball-tickets-1071440139299?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "View Opulent Temple Seattle presents NYE 2025 @ Monkey Loft : The Funky Swank",
+          "category": "music",
+          "link": "https://www.eventbrite.com/e/opulent-temple-seattle-presents-nye-2025-monkey-loft-the-funky-swank-tickets-1024593224917?aff=ebdssbdestsearch"
+        }
+      ]
+    },
+    {
+      "question": "What events reveal Seattle's approach to niche cultural and social experiences?",
+      "ground_truth": [
+        {
+          "name": "Luvvly Speed Dating ◈ Queer Women ◈  Ages 25 - 35 ◈ Seattle",
+          "category": "community",
+          "link": "https://www.eventbrite.com/e/luvvly-speed-dating-queer-women-ages-25-35-seattle-tickets-1083211658229?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "WA100 Project: A Visual Journey Climbing Washington's 100 Highest Peaks",
+          "category": "hobbies",
+          "link": "https://www.eventbrite.com/e/wa100-project-a-visual-journey-climbing-washingtons-100-highest-peaks-tickets-1082884810619?aff=ebdssbdestsearch"
+        }
+      ],
+      "model": [
+        {
+          "name": "View Sapphic NYE!",
+          "category": "community",
+          "link": "https://www.eventbrite.com/e/sapphic-nye-tickets-1072511965159?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "View Messiah (Kenmore)",
+          "category": "music",
+          "link": "https://www.eventbrite.com/e/messiah-kenmore-tickets-919907808017?aff=ebdssbdestsearch"
+        }
+      ]
+    },
+    {
+      "question": "What events reveal the most eclectic and unexpected performance experiences in Seattle?",
+      "ground_truth": [
+        {
+          "name": "An Evening with the Musical Mountaineers and Author Kevin Grange",
+          "category": "arts",
+          "link": "https://www.eventbrite.com/e/an-evening-with-the-musical-mountaineers-and-author-kevin-grange-tickets-1015767496927?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "FAIRE LA FLEX: SANRIO RAVE (18+)",
+          "category": "arts",
+          "link": "https://www.eventbrite.com/e/faire-la-flex-sanrio-rave-18-tickets-1089401993689?aff=ebdssbdestsearch"
+        }
+      ],
+      "model": [
+        {
+          "name": "Opulent Temple Seattle presents NYE 2025 @ Monkey Loft: The Funky Swank",
+          "category": "music",
+          "link": "https://www.eventbrite.com/e/opulent-temple-seattle-presents-nye-2025-monkey-loft-the-funky-swank-tickets-1024593224917?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "UCU 20th Anniversary Winter Show Preview Night 2024",
+          "category": "community",
+          "link": "https://www.eventbrite.com/e/ucu-20th-anniversary-winter-show-preview-night-2024-tickets-951577683467?aff=ebdssbdestsearch"
+        }
+      ]
+    },
+    {
+      "question": "What events showcase Seattle's commitment to diverse and inclusive social experiences?",
+      "ground_truth": [
+        {
+          "name": "Sapphic NYE!",
+          "category": "community",
+          "link": "https://www.eventbrite.com/e/sapphic-nye-tickets-1072511965159?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "Ugly Christmas Sweater Singles Bingo! (Ages 25-40)",
+          "category": "No Category",
+          "link": "https://www.eventbrite.com/e/ugly-christmas-sweater-singles-bingo-ages-25-40-tickets-1081026923629?aff=ebdssbdestsearch"
+        }
+      ],
+      "model": [
+        {
+          "name": "Messiah (Kenmore)",
+          "category": "music",
+          "link": "https://www.eventbrite.com/e/messiah-kenmore-tickets-919907808017?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "Seattle Biggest Business, Tech & Entrepreneur Networking Soiree",
+          "category": "business",
+          "link": "https://www.eventbrite.com/e/seattle-biggest-business-tech-entrepreneur-networking-soiree-tickets-1014719412077?aff=ebdssbdestsearch"
+        }
+      ]
+    },
+    {
+      "question": "Which events highlight Seattle's vibrant and multifaceted music scene?",
+      "ground_truth": [
+        {
+          "name": "R&B ONLY LIVE - Seattle, WA (10 Year Anniversary)",
+          "category": "music",
+          "link": "https://www.eventbrite.com/e/rb-only-live-seattle-wa-10-year-anniversary-tickets-1093862214329?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "People Music Presents: ZEKE BEATS w Rohaan",
+          "category": "music",
+          "link": "https://www.eventbrite.com/e/people-music-presents-zeke-beats-w-rohaan-tickets-1078900914679?aff=ebdssbdestsearch"
+        }
+      ],
+      "model": [
+        {
+          "name": "People Music Presents: ZEKE BEATS w Rohaan",
+          "category": "music",
+          "link": "https://www.eventbrite.com/e/people-music-presents-zeke-beats-w-rohaan-tickets-1078900914679?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "Sapphic NYE!",
+          "category": "community",
+          "link": "https://www.eventbrite.com/e/sapphic-nye-tickets-1072511965159?aff=ebdssbdestsearch"
+        }
+      ]
+    },
+    {
+      "question": "What events demonstrate Seattle's approach to wellness and personal growth beyond traditional fitness?",
+      "ground_truth": [
+        {
+          "name": "Thanksgiving Edition Kirtan Soulfest | Bhakti Yoga, Dancing, Veggie Dinner",
+          "category": "health",
+          "link": "https://www.eventbrite.com/e/thanksgiving-edition-kirtan-soulfest-bhakti-yoga-dancing-veggie-dinner-tickets-1054407133119?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "Happy Humanimals: Snugs & Connection (Northeast Seattle)",
+          "category": "health",
+          "link": "https://www.eventbrite.com/e/happy-humanimals-snugs-connection-northeast-seattle-tickets-1055026786519?aff=ebdssbdestsearch"
+        }
+      ],
+      "model": [
+        {
+          "name": "Sync Seattle Third Annual Hats Off Holiday Ball",
+          "category": "community",
+          "link": "https://www.eventbrite.com/e/sync-seattle-third-annual-hats-off-holiday-ball-tickets-1071440139299?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "Happy Humanimals: Snugs & Connection (Northeast Seattle)",
+          "category": "health",
+          "link": "https://www.eventbrite.com/e/happy-humanimals-snugs-connection-northeast-seattle-tickets-1055026786519?aff=ebdssbdestsearch"
+        }
+      ]
+    },
+    {
+      "question": "What are the biggest things happening in 2024?",
+      "ground_truth": [
+        {
+          "name": "2024 GeekWire Gala",
+          "category": "community",
+          "link": "https://www.eventbrite.com/e/2024-geekwire-gala-tickets-1014247259857?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "Seattle Sports & Ent. Career Fair by the University of Washington Athletics",
+          "category": "business",
+          "link": "https://www.eventbrite.com/e/seattle-sports-ent-career-fair-by-the-university-of-washington-athletics-tickets-1021706169657?aff=ebdssbdestsearch"
+        }
+      ],
+      "model": [
+        {
+          "name": "2024 Navtech Conference",
+          "category": "science-and-tech",
+          "link": "https://www.eventbrite.com/e/2024-navtech-conference-tickets-804137696497?aff=ebdssbdestsearch"
+        },
+        {
+          "name": "On The Block Holiday Special Marketplace & Fundraiser 2024",
+          "category": "holiday",
+          "link": "https://www.eventbrite.com/e/on-the-block-holiday-special-marketplace-fundraiser-2024-tickets-1091843817249?aff=ebdssbdestsearch"
+        }
+      ]
+    }
+  ]
+  
+  

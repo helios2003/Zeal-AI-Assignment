@@ -20,6 +20,7 @@ export default function Home() {
     if (startPage === undefined || endPage === undefined) {
       setLoading(false)
       toast({
+        variant: "destructive",
         title: "Bad request",
         description: "One of the page number fields is empty",
       })
@@ -106,16 +107,40 @@ export default function Home() {
               </div>
             </div>
             <div className="space-y-4 w-full max-w-2xl mx-auto">
-              <Button
-                onClick={handleScrape}
-                disabled={loading}
-                className={cn(
-                  'w-full bg-blue-600',
-                  loading && 'opacity-50 cursor-not-allowed bg-blue-600 hover:bg-blue-600'
-                )}
-              >
-                {loading ? "Loading..." : "Gather Data"}
-              </Button>
+              <div className="flex w-full">
+                <Button
+                  onClick={handleScrape}
+                  disabled={loading}
+                  className={cn(
+                    'w-full bg-blue-600',
+                    loading && 'opacity-50 cursor-not-allowed bg-blue-600 hover:bg-blue-600'
+                  )}
+                >
+                  {loading ? "Loading..." : "Gather Data"}
+                </Button>
+              </div>
+              <div className="flex w-full space-x-4">
+                <Button
+                  onClick={() => { router.push('/chat') }}
+                  disabled={loading}
+                  className={cn(
+                    'w-1/2 bg-blue-600',
+                    loading && 'opacity-50 cursor-not-allowed bg-blue-600 hover:bg-blue-600'
+                  )}
+                >
+                  {"Chat with the Bot"}
+                </Button>
+                <Button
+                  onClick={() => { router.push('/evaluation') }}
+                  disabled={loading}
+                  className={cn(
+                    'w-1/2 bg-blue-600',
+                    loading && 'opacity-50 cursor-not-allowed bg-blue-600 hover:bg-blue-600'
+                  )}
+                >
+                  {"See Evaluation"}
+                </Button>
+              </div>
             </div>
           </div>
         </div>

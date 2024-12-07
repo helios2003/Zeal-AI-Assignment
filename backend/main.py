@@ -6,12 +6,10 @@ from typing import Dict, Any
 from pydantic import BaseModel
 from fastapi import FastAPI, status, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from dotenv import load_dotenv
+from dotenv import load_dotenv, set_key
 from utils.scraper import scrape_seattle_website
 from utils.embeddings import generate_embeddings, get_results
-
-app = FastAPI()
-
+from utils.evaluation import evaluate_dataset
 
 app = FastAPI()
 
@@ -65,22 +63,31 @@ def scrape_website(start_page: int, end_page: int):
 def set_api_key(payload: APIKeyRequest):
     """
     Set the API key that the user needs to use to access the remotely
-    hosted model
+    hosted model. If a valid key already exists, do not overwrite it.
     """
     try:
         api_key = payload.api_key
-        if len(str(api_key)) != 75:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="API key does not follow the valid format"
-            )
-        
         env_file = Path(__file__).resolve().parent / "../.env"
+
         load_dotenv(dotenv_path=env_file)
 
-        with open(env_file, "w", encoding="utf-8") as file:
-            file.write(f"\nPINECONE_API_KEY={api_key}\n")
+        existing_key = os.getenv("PINECONE_API_KEY")
+        if existing_key and len(existing_key) == 75:
+            # if valid api key exists skip
+            if not api_key or len(api_key) != 75:
+                return {
+                    "status_code": status.HTTP_200_OK,
+                    "message": "A valid API key already exists. No update was made.",
+                    "PINECONE_API_KEY": existing_key
+                }
 
+        if len(api_key) != 75:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="API key does not follow the valid format."
+            )
+
+        set_key(str(env_file), "PINECONE_API_KEY", api_key)
         load_dotenv(dotenv_path=env_file, override=True)
 
         return {
@@ -97,9 +104,6 @@ def set_api_key(payload: APIKeyRequest):
                 "error": str(e)
             }
         )
-
-# @app.post('/initial-prompt' status_code=200)
-# def set_prompt(prompt: str):
     
 @app.post('/get-results', status_code=status.HTTP_200_OK)
 def get_results_route(payload: GetResults) -> Dict[str, Any]:
@@ -118,7 +122,6 @@ def get_results_route(payload: GetResults) -> Dict[str, Any]:
 
     try:
         results = get_results(query=query, top_k=top_k, threshold=threshold)
-
         extracted_results = [
             {
                 "id": match.get("id"),
@@ -128,9 +131,32 @@ def get_results_route(payload: GetResults) -> Dict[str, Any]:
             }
             for match in results.get("matches", [])[:top_k]
         ]
-
+        
         return {"results": extracted_results}
     
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail={
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+                "error": str(e)
+            }
+        )
+
+@app.get("/evaluate", status_code=status.HTTP_200_OK)
+def evaluate_output():
+    try:
+        with open("evaluation.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        results = evaluate_dataset(data)
+
+        return {
+            "status_code": status.HTTP_200_OK,
+            "message": "Evaluation is completed",
+            "results": results
+        }
+
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,

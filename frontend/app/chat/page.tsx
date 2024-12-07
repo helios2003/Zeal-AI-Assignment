@@ -5,12 +5,16 @@ import axios from "axios"
 import Modal from "@/components/custom/Modal"
 import ChatInput from "@/components/custom/ChatInput"
 import { ChatContainer } from "@/components/custom/ChatContainer"
-import { useState } from "react"
+import { Loader } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
 import { Message } from "@/components/custom/ChatMessage"
 
 export default function Chat() {
     const [isLoading, setIsLoading] = useState(false)
     const [messages, setMessages] = useState<Message[]>([])
+    const [queryInputs, setQueryInputs] = useState<string[]>([])
+    const [messageLengths, setMessageLengths] = useState<number[]>([])
+    const chatMessagesRef = useRef<HTMLDivElement>(null)
 
     async function handleSubmit(query: string) {
         const payload = {
@@ -20,26 +24,33 @@ export default function Chat() {
         }
         setIsLoading(true)
         try {
-            const response = await axios.post("http://localhost:8000/get-results", payload);
+            const response = await axios.post("http://localhost:8000/get-results", payload)
             if (response.status === 200) {
                 const newMessages: Message[] = response.data.results.map((result: any) => ({
                     id: result.id,
                     category: result.category,
                     link: result.link,
-                    name: result.name,
+                    name: result.name
                 }))
-                console.log("hi mama howdy you")
+
                 setMessages((prevMessages) => [...prevMessages, ...newMessages])
+                setQueryInputs((prevQueryInputs) => [...prevQueryInputs, query])
+                setMessageLengths((prevLengths) => [...prevLengths, newMessages.length])
             } else {
-                console.log("yo wassup")
-                console.error("Failed to fetch results:", response.data);
+                console.error("Failed to fetch results:", response.data)
             }
         } catch (error) {
-            console.error(error);
+            console.error(error)
         } finally {
             setIsLoading(false)
         }
     }
+
+    useEffect(() => {
+        if (chatMessagesRef.current) {
+            chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight
+        }
+    }, [messages])
 
     return (
         <div className="max-w-4xl mx-auto px-4 py-8">
@@ -55,12 +66,23 @@ export default function Chat() {
                     Ask me anything about Seattle on eventbrite.com
                 </p>
             </div>
-
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col" style={{ height: 'calc(100vh - 250px)' }}>
-                <div className="p-4 border-t border-gray-200">
+            <div ref={chatMessagesRef}>
                     <ChatInput onSubmit={handleSubmit} isLoading={isLoading} />
-                </div>
-                <ChatContainer messages={messages} />
+
+                {messageLengths.map((length, index) => {
+                    let startIndex = messageLengths.slice(0, index).reduce((a, b) => a + b, 0);
+                    return (
+                        <div key={index} className="py-2 space-y-4">
+                            <ChatContainer messages={messages.slice(startIndex, startIndex + length)} />
+                            <ChatInput onSubmit={handleSubmit} isLoading={isLoading} />
+                        </div>
+                    )
+                })}
+                {isLoading && (
+                    <div className="flex justify-center items-center py-4">
+                        <Loader className="h-6 w-6 text-blue-600 animate-spin" />
+                    </div>
+                )}
             </div>
         </div>
     )

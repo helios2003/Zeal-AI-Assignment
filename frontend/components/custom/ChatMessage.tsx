@@ -19,7 +19,7 @@ export default function ChatMessage({ id, category, link, name }: Message) {
       </div>
       <div className="flex-1">
         <p className="text-gray-900">
-          <span className="font-bold">ID:</span> {id}
+          <span className="font-bold">Name:</span> {id}
         </p>
         <p className="text-gray-900">
           <span className="font-bold">Category:</span> {category}
@@ -29,9 +29,6 @@ export default function ChatMessage({ id, category, link, name }: Message) {
           <a href={link} className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
             {link}
           </a>
-        </p>
-        <p className="text-gray-900">
-          <span className="font-bold">Name:</span> {name}
         </p>
       </div>
     </div>

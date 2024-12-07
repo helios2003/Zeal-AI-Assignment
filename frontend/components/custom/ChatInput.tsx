@@ -13,7 +13,6 @@ export default function ChatInput({ onSubmit, isLoading }: ChatInputProps) {
   const handleSubmit = () => {
     if (message.trim() && !isLoading) {
       onSubmit(message.trim())
-      setMessage('')
     }
   }
 

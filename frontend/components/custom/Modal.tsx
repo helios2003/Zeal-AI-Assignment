@@ -2,7 +2,6 @@
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "../ui/button"
-import { Switch } from "../ui/switch"
 import { useToast } from "@/hooks/use-toast"
 import { useState } from "react"
 import axios from "axios"
@@ -71,10 +70,6 @@ export default function Modal() {
                                 onChange={(e) => { setTopK(e.target.value) }}
                                 placeholder="Number of top answers to be returned (b/w 1 to 10)"
                             />
-                            <Switch checked={isOn}
-                                onCheckedChange={(checked) => setIsOn(checked)}
-                                className="bg-blue-600" />
-                            <span className="px-4 -py-2">Do you need evaluation score for each reponse</span>
                             <Button
                                 className="bg-blue-600 w-full"
                                 onClick={handleSubmit}
