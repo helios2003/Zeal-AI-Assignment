@@ -8,6 +8,7 @@ import { ChatContainer } from "@/components/custom/ChatContainer"
 import { Loader } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import { Message } from "@/components/custom/ChatMessage"
+import { useToast } from "@/hooks/use-toast"
 
 export default function Chat() {
     const [isLoading, setIsLoading] = useState(false)
@@ -15,6 +16,8 @@ export default function Chat() {
     const [queryInputs, setQueryInputs] = useState<string[]>([])
     const [messageLengths, setMessageLengths] = useState<number[]>([])
     const chatMessagesRef = useRef<HTMLDivElement>(null)
+
+    const { toast } = useToast()
 
     async function handleSubmit(query: string) {
         const payload = {
@@ -24,6 +27,7 @@ export default function Chat() {
         }
         setIsLoading(true)
         try {
+
             const response = await axios.post("http://localhost:8000/get-results", payload)
             if (response.status === 200) {
                 const newMessages: Message[] = response.data.results.map((result: any) => ({
@@ -47,10 +51,11 @@ export default function Chat() {
     }
 
     useEffect(() => {
-        if (chatMessagesRef.current) {
-            chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight
-        }
-    }, [messages])
+        toast({
+        title: "Attention",
+        description: "Please enter valid details by clicking on 'Add Details'. Ignore if already done",
+      })
+    }, [])
 
     return (
         <div className="max-w-4xl mx-auto px-4 py-8">

@@ -12,8 +12,8 @@ git clone https://github.com/helios2003/Zeal-AI-Assignment.git
 
 ### Using Docker
 - Ensure that you have Docker in your system.
-- Run the command and wait for all the containers to start
 - Fill the `environment` variable in the `docker-compose.yml` file with the Pinecone API key. Check how to obtain one from [here](https://app.pinecone.io/organizations/-/keys).
+- Run the command and wait for all the containers to start
 
 ```
 docker-compose up -d
@@ -31,6 +31,9 @@ docker-compose up -d
 - Change directory to `frontend/` folder.
 - Run `npm install` to install the dependencies
 - Run `npm run dev` to bring up the frontend
+
+## Workflow of the project
+![Home Screenshot](./screenshots/workflow.png)
 
 ## Screenshots
 ### Home Page Screenshot
